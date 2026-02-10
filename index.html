@@ -1,1 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Cheating</title>
 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin-top: 120px;
+      background: #ffe6ea;
+      overflow: hidden;
+    }
+
+    button {
+      padding: 14px 28px;
+      font-size: 18px;
+      margin: 15px;
+      border-radius: 12px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .yes {
+      background-color: #ff4d6d;
+      color: black;
+    }
+
+    .no {
+      background-color: #cccccc;
+      position: absolute;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Malik Abdulrehman! Did you cheat on me on purpose? 💗</h1>
+
+  <button class="yes" onclick="yesClick()">Yes</button>
+  <button class="no" id="noBtn" onmouseover="moveNo()">No</button>
+
+  <p id="msg" style="font-size:20px; margin-top:40px;"></p>
+
+  <script>
+    function yesClick() {
+      document.getElementById("msg").innerHTML =
+        "You broke my heart in million pieces💔";
+    }
+
+    function moveNo() {
+      const btn = document.getElementById("noBtn");
+
+      const x = Math.random() * (window.innerWidth - 120);
+      const y = Math.random() * (window.innerHeight - 60);
+
+      btn.style.left = x + "px";
+      btn.style.top = y + "px";
+    }
+  </script>
+
+</body>
+</html>
