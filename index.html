@@ -1,57 +1,93 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Cheating</title>
+  <meta charset="UTF-8">
+  <title>Truth</title>
 
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      color: #ffffff;
       text-align: center;
-      margin-top: 120px;
-      background: #ffe6ea;
+      height: 100vh;
+      margin: 0;
       overflow: hidden;
     }
 
+    h1 {
+      margin-top: 120px;
+      font-size: 26px;
+      font-weight: 500;
+    }
+
     button {
-      padding: 14px 28px;
+      padding: 14px 30px;
       font-size: 18px;
-      margin: 15px;
-      border-radius: 12px;
+      margin: 20px;
+      border-radius: 25px;
       border: none;
       cursor: pointer;
+      transition: 0.3s;
     }
 
     .yes {
-      background-color: #ff4d6d;
-      color: black;
+      background-color: #b00020;
+      color: white;
     }
 
     .no {
-      background-color: #cccccc;
+      background-color: #f5f5f5;
+      color: #222;
       position: absolute;
+    }
+
+    #msg {
+      margin-top: 50px;
+      font-size: 20px;
+      max-width: 80%;
+      margin-left: auto;
+      margin-right: auto;
     }
   </style>
 </head>
 
 <body>
 
-  <h1>Malik Abdulrehman! Did you cheat on me on purpose? 💗</h1>
+  <h1>Malik Abdulrehman,<br>did you cheat on me on purpose?</h1>
 
   <button class="yes" onclick="yesClick()">Yes</button>
-  <button class="no" id="noBtn" onmouseover="moveNo()">No</button>
+  <button class="no" id="noBtn" onclick="noClick()">No</button>
 
-  <p id="msg" style="font-size:20px; margin-top:40px;"></p>
+  <p id="msg"></p>
 
   <script>
+    let noMessages = [
+      "Are you sure?",
+      "Think again.",
+      "Don’t lie to me.",
+      "I trusted you.",
+      "This hurts more than you know.",
+      "Why is this so hard to answer?",
+      "Please be honest."
+    ];
+
+    let index = 0;
+
     function yesClick() {
       document.getElementById("msg").innerHTML =
-        "You broke my heart in million pieces💔";
+        "You broke my heart in million pieces 💔";
     }
 
-    function moveNo() {
+    function noClick() {
       const btn = document.getElementById("noBtn");
 
-      const x = Math.random() * (window.innerWidth - 120);
+      document.getElementById("msg").innerHTML =
+        noMessages[index % noMessages.length];
+
+      index++;
+
+      const x = Math.random() * (window.innerWidth - 140);
       const y = Math.random() * (window.innerHeight - 60);
 
       btn.style.left = x + "px";
